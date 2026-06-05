@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CarePlus Clinic | Intelligent Healthcare</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#fc8d9d",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#7b112d",
+                        "outline": "#8a7173",
+                        "primary-fixed-dim": "#ffb2ba",
+                        "on-tertiary-fixed-variant": "#891839",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed": "#ffd9dd",
+                        "tertiary": "#58001e",
+                        "on-secondary-fixed-variant": "#7d293a",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#400011",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#400013",
+                        "primary": "#58001a",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#762335",
+                        "background": "#fcf9f8",
+                        "secondary-fixed": "#ffd9dd",
+                        "surface-container-high": "#eae7e7",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "inverse-on-surface": "#f3f0ef",
+                        "inverse-primary": "#ffb2ba",
+                        "tertiary-container": "#7d0c31",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#a7354b",
+                        "surface-bright": "#fcf9f8",
+                        "surface": "#fcf9f8",
+                        "tertiary-fixed-dim": "#ffb2bd",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1c1b1b",
+                        "outline-variant": "#ddbfc1",
+                        "on-surface-variant": "#574143",
+                        "on-tertiary-container": "#ff839a",
+                        "on-secondary-fixed": "#400012",
+                        "on-primary-fixed-variant": "#871c35",
+                        "secondary-fixed-dim": "#ffb2bb",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-container": "#ff8395",
+                        "primary-fixed": "#ffd9dc",
+                        "surface-container": "#f0eded",
+                        "secondary": "#9b4050"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "20px",
+                        "stack-sm": "8px",
+                        "section-gap": "120px",
+                        "stack-md": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Manrope"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Manrope"],
+                        "mono-label": ["Manrope"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .ambient-glow {
+            box-shadow: 0 20px 40px rgba(123, 17, 45, 0.04);
+        }
+        .maroon-gradient {
+            background: linear-gradient(135deg, #7b112d 0%, #5a0d21 100%);
+        }
+        .bento-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(123, 17, 45, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white">
+<!-- Section 8: Companion Panel (Integrated/Floating) -->
+<aside class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col gap-4 w-64 glass p-6 rounded-xl ambient-glow border border-outline-variant">
+<div class="flex items-center gap-3 mb-2">
+<div class="size-3 rounded-full bg-primary-container animate-pulse shadow-[0_0_10px_rgba(123,17,45,0.5)]"></div>
+<h3 class="font-label-md text-primary-container uppercase tracking-widest text-xs">Care Companion</h3>
+</div>
+<p class="text-xs text-on-surface-variant mb-4">AI-driven guidance for your medical journey.</p>
+<div class="flex flex-col gap-2">
+<button class="flex items-center gap-3 p-3 rounded-lg bg-white/50 hover:bg-primary-container hover:text-white transition-colors group">
+<span class="material-symbols-outlined text-xl" data-icon="calendar_month">calendar_month</span>
+<span class="text-sm font-semibold">Quick Book</span>
+</button>
+<button class="flex items-center gap-3 p-3 rounded-lg bg-white/50 hover:bg-primary-container hover:text-white transition-colors group">
+<span class="material-symbols-outlined text-xl" data-icon="emergency">emergency</span>
+<span class="text-sm font-semibold">Emergency</span>
+</button>
+<button class="flex items-center gap-3 p-3 rounded-lg bg-white/50 hover:bg-primary-container hover:text-white transition-colors group">
+<span class="material-symbols-outlined text-xl" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="text-sm font-semibold">Insurance</span>
+</button>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30">
+<a class="text-xs font-bold text-primary flex items-center gap-2" href="tel:+1234567890">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span> 24/7 Helpline
+            </a>
+</div>
+</aside>
+<!-- Navigation (From Shared Components) -->
+<header class="sticky top-0 z-[60] bg-white/80 backdrop-blur-md border-b border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-6 lg:px-16 flex items-center justify-between h-20">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-on-surface font-headline-md text-xl tracking-tight">CarePlus Clinic</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-on-surface font-label-md hover:text-primary transition-colors" href="#services">Services</a>
+<a class="text-on-surface font-label-md hover:text-primary transition-colors" href="#doctors">Doctors</a>
+<a class="text-on-surface font-label-md hover:text-primary transition-colors" href="#hub">Health Hub</a>
+<a class="text-on-surface font-label-md hover:text-primary transition-colors" href="#contact">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden sm:flex items-center justify-center px-6 py-2.5 bg-primary-container text-white font-label-md rounded-lg hover:bg-primary transition-all">
+                    Book Appointment
+                </button>
+<div class="size-10 rounded-full border border-outline-variant bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a diverse medical receptionist in a high-end clinical environment, with soft warm lighting and a maroon brand color scheme. The aesthetic is clean, trustworthy, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARs7eHw_hbLoc8FLFW3_pARpfxygstWGTaVBOW4UVwaeGXrZPr2ORFr0Y-0u4HWCgCouZCfbMlME00yBngSn6XNn4va0iU80Me6d3PvAw_MHTN2TZFay6EJ-vdVKBYSp0Sb6r-eGYSPeFvOrEejsbtROTevwexPpkLzqtAGhW54dBazuP-zFgAvFWpz4u8-vlOJ9oJWuu3_xmPzUIB3-1MoUlFAJRLa-iq6bRkbLfOT1TAMEhoAo6OTugfLYxdxjOF-NrkwyMW-U0"/>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Section 1: Intelligent Hero -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 z-0 opacity-40">
+<webgl-shader class="w-full h-full" src="{{DATA:ANIMATION:ANIMATION_1}}"></webgl-shader>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto space-y-8">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed font-mono-label uppercase">Intelligent Specialty Care</span>
+<h1 class="text-display-lg-mobile md:text-display-lg text-primary font-bold">Healthcare Designed Around Your Needs</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Experience premium AI-inspired multi-specialty care tailored to your lifestyle. Find the right specialist or service in seconds.</p>
+<div class="w-full max-w-2xl mx-auto">
+<div class="glass p-2 rounded-full flex items-center shadow-xl border border-outline-variant">
+<span class="material-symbols-outlined pl-4 text-primary opacity-60" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline p-4 font-body-md" placeholder="What can we help you with today?" type="text"/>
+<button class="bg-primary-container text-white px-8 py-3 rounded-full font-label-md hover:bg-primary transition-all shadow-lg">Ask AI</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-12">
+<a class="bento-card glass p-4 rounded-xl flex flex-col items-center gap-2 group" href="#">
+<div class="size-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="stethoscope">stethoscope</span>
+</div>
+<span class="text-xs font-bold text-on-surface">OPD Book</span>
+</a>
+<a class="bento-card glass p-4 rounded-xl flex flex-col items-center gap-2 group" href="#">
+<div class="size-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+</div>
+<span class="text-xs font-bold text-on-surface">Specialist</span>
+</a>
+<a class="bento-card glass p-4 rounded-xl flex flex-col items-center gap-2 group border-error/20" href="#">
+<div class="size-10 rounded-lg bg-error-container flex items-center justify-center text-error group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+</div>
+<span class="text-xs font-bold text-on-surface">Emergency</span>
+</a>
+<a class="bento-card glass p-4 rounded-xl flex flex-col items-center gap-2 group" href="#">
+<div class="size-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="bed">bed</span>
+</div>
+<span class="text-xs font-bold text-on-surface">ICU Care</span>
+</a>
+<a class="bento-card glass p-4 rounded-xl flex flex-col items-center gap-2 group" href="#">
+<div class="size-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+</div>
+<span class="text-xs font-bold text-on-surface">Surgery</span>
+</a>
+<a class="bento-card glass p-4 rounded-xl flex flex-col items-center gap-2 group" href="#">
+<div class="size-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="cardiology">cardiology</span>
+</div>
+<span class="text-xs font-bold text-on-surface">Packages</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Section 2: Clinic Overview Bento Grid -->
+<section class="py-section-gap px-6 lg:px-16 max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Large Highlight Card -->
+<div class="md:col-span-2 lg:col-span-3 bg-primary-container rounded-3xl p-8 text-white relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+<div class="relative z-10">
+<h2 class="text-headline-md mb-2">Excellence in Care</h2>
+<p class="text-on-primary-container font-body-md opacity-90">State-of-the-art facilities integrated with digital precision.</p>
+</div>
+<div class="relative z-10 flex items-baseline gap-2">
+<span class="text-6xl font-bold tracking-tighter">5000+</span>
+<span class="text-xl opacity-70">Patients Served Yearly</span>
+</div>
+<div class="absolute right-[-10%] bottom-[-10%] size-64 opacity-20">
+<span class="material-symbols-outlined text-[200px]" data-icon="health_and_safety">health_and_safety</span>
+</div>
+</div>
+<!-- Stat Cards -->
+<div class="bento-card bg-white border border-outline-variant p-8 rounded-3xl flex flex-col justify-between shadow-sm">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="bed">bed</span>
+<div>
+<p class="text-4xl font-bold text-on-surface">40</p>
+<p class="text-sm font-semibold text-on-surface-variant">Total Premium Beds</p>
+</div>
+</div>
+<div class="bento-card bg-white border border-outline-variant p-8 rounded-3xl flex flex-col justify-between shadow-sm">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="emergency">emergency</span>
+<div>
+<p class="text-4xl font-bold text-on-surface">24/7</p>
+<p class="text-sm font-semibold text-on-surface-variant">Critical Response</p>
+</div>
+</div>
+<div class="bento-card bg-white border border-outline-variant p-8 rounded-3xl flex flex-col justify-between shadow-sm lg:col-span-1">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="medical_information">medical_information</span>
+<div>
+<p class="text-4xl font-bold text-on-surface">2</p>
+<p class="text-sm font-semibold text-on-surface-variant">Modular OTs</p>
+</div>
+</div>
+<!-- Medium Wide Card -->
+<div class="md:col-span-2 lg:col-span-2 bg-surface-container p-8 rounded-3xl border border-outline-variant flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="groups">groups</span>
+<span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-primary">Board Certified</span>
+</div>
+<div>
+<p class="text-3xl font-bold text-on-surface">12+</p>
+<p class="text-sm font-semibold text-on-surface-variant">Top Visiting Specialists</p>
+</div>
+</div>
+<div class="md:col-span-2 lg:col-span-2 bg-secondary-container/10 p-8 rounded-3xl border border-secondary-container/30 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+<div>
+<p class="text-3xl font-bold text-on-surface">Advanced</p>
+<p class="text-sm font-semibold text-on-surface-variant">ICU &amp; Monitoring</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Smart Service Discovery -->
+<section class="py-section-gap bg-surface-container-low px-6" id="services">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<h2 class="text-headline-lg text-primary mb-4">Smart Service Discovery</h2>
+<p class="text-body-lg text-on-surface-variant max-w-xl">Leveraging AI to match your symptoms with the right clinical department.</p>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold group">
+                        View All Specialties 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="group relative bg-white rounded-2xl overflow-hidden border border-outline-variant transition-all hover:shadow-2xl">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A futuristic medical laboratory with advanced diagnostics equipment and glowing screens. The lighting is crisp and sterile with deep maroon accent glows, reflecting a sophisticated clinical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAq9ByVz-3ev-dwehJnWoFiMM6xgA_CHD-in4WSPsvE6wdJxAs55ahiWWl5wyfZGC6KKQ75YbVOPBFxBWhVnRevSjjfT5aaX__maVRi8fWSadrChpDbueN0n-B9x_PafEGnekbeenKD9ktnO-YSZ81elXebXWOn28hJJuO4JZKu8wUomuNtV-mRQgoFs8LREs82sNotFqVyfHOX4IP4LgWX8iwa3Dy3-iy3ohOV5RS08Zqh4LPGV7lr4wNw4OW0I1LAip-0tYlpy4"/>
+</div>
+<div class="p-8">
+<div class="size-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+</div>
+<h3 class="text-headline-md text-xl mb-3">Diagnostic Excellence</h3>
+<p class="text-on-surface-variant text-sm mb-6">Precision imaging and pathology labs powered by smart data analysis for faster, accurate results.</p>
+<a class="text-primary font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Explore Department <span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-white rounded-2xl overflow-hidden border border-outline-variant transition-all hover:shadow-2xl">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern modular operation theater with ergonomic surgical lights and robotic-assisted surgical tools. The aesthetic is high-tech, minimalist, and serene, using the clinic's signature maroon color for surgical indicators." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmae8dEHDnuARgL8NJQ0DGxvwZCGYEyQq8TuJOjl6lZtWgrwQMZrHFXzjpfbUQOvkg0lxP5q-GIcyAhRaJ_KPEQ3MNxjTTgVmpDS07oWXDsrzNo2D_NSeSCMBH6FxWQqO4U_SiOMtaA8SyXZRK1CkKoTbMrLCZwQ0ZzGcu94Y4jPgl_9_nXkWJJqXwic3QsW1QN-LwPuPW2nGyZoNbbHb5SBA2J4Xid9eUsTNzJZNiNpxtlZVzgSduNedy25rVoxmeQBpfkzqy--k"/>
+</div>
+<div class="p-8">
+<div class="size-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" data-icon="surgical">surgical</span>
+</div>
+<h3 class="text-headline-md text-xl mb-3">Surgical Precision</h3>
+<p class="text-on-surface-variant text-sm mb-6">Minimally invasive procedures in modular OTs designed for safety and rapid patient recovery.</p>
+<a class="text-primary font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Explore Department <span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-white rounded-2xl overflow-hidden border border-outline-variant transition-all hover:shadow-2xl">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bright, airy outpatient consultation room featuring clean white furniture and modern medical technology. Large windows provide natural light, and subtle maroon accents create a premium, welcoming atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4tNoJzSLlZAevoQ7Mc-sbRkVOv36bzTX_9ROFi0r_GCHkRJy_bmGgXAtOBMWO5CBSkEUTQ7HTIhn1WXvnU2dGUK0CWbYP2mu6zsxfmsHwFhG0H_psG4q5NKQNGXcObPmwm97_CMGezZT390ezAxajhuWlFmCjbQCfMQvnqs4p9L9rEAen_ZkJC_rmVldc-rQL28yRTjL_BtV8RM5TFBFfvC5QQx4dk_-h97FsSoiu0zd8-dt7wmJB_27il2Cvh-1lYDR_Zu6VRR0"/>
+</div>
+<div class="p-8">
+<div class="size-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" data-icon="monitor_heart">monitor_heart</span>
+</div>
+<h3 class="text-headline-md text-xl mb-3">Preventive Health</h3>
+<p class="text-on-surface-variant text-sm mb-6">Holistic health packages designed to identify risks before they become problems. Proactive care for all ages.</p>
+<a class="text-primary font-bold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all" href="#">Explore Department <span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Visiting Doctors Experience -->
+<section class="py-section-gap px-6 lg:px-16 max-w-[1280px] mx-auto" id="doctors">
+<div class="text-center mb-16">
+<h2 class="text-headline-lg text-primary mb-4">Elite Specialty Network</h2>
+<p class="text-body-lg text-on-surface-variant mx-auto max-w-2xl">Consult with some of the region's most renowned specialists across multiple disciplines.</p>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+<button class="px-6 py-2 rounded-full bg-primary-container text-white font-bold text-sm">All Specialties</button>
+<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-semibold text-sm hover:bg-outline-variant transition-all">Cardiology</button>
+<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-semibold text-sm hover:bg-outline-variant transition-all">Orthopedics</button>
+<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-semibold text-sm hover:bg-outline-variant transition-all">Neurology</button>
+<button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-semibold text-sm hover:bg-outline-variant transition-all">Pediatrics</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Dr. 1 -->
+<div class="bento-card bg-white border border-outline-variant rounded-2xl overflow-hidden p-6 flex flex-col items-center text-center">
+<div class="size-32 rounded-full overflow-hidden border-4 border-primary-fixed mb-6">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a senior male cardiologist in his 50s, wearing a white coat and stethoscope. The background is a blurred high-end medical suite with maroon lighting accents, conveying wisdom and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI0_PUVYY9lQYugcmEsxLcTnq3D72LiDRHTC-6SZSQAbvKB300P954oeZOiphlK7-m_6n2UotlRECNg7Dq7Zo11Nmex2UGpHMjG6Y8r-3rt7WcpIfLGZveWFbF-TLjON1vh4eUjuIkZ6vG19OttpJBAWSNMBT_e8rJqi8VjJJFON7me-xDZAfBbzhQb9uTQv7MiJgpA4hC2nR_Vaop2LQY5SKluGDCKRjNCqwPakUYjmiTSGGxsVXYf9DY9jw-OCTaT3yc1L2RyVs"/>
+</div>
+<h4 class="text-xl font-bold text-on-surface mb-1">Dr. Aris Varma</h4>
+<p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Senior Cardiologist</p>
+<div class="flex items-center gap-2 mb-6">
+<div class="px-2 py-1 bg-green-100 text-green-700 rounded text-[10px] font-bold uppercase">Available Today</div>
+<div class="px-2 py-1 bg-surface-container text-on-surface-variant rounded text-[10px] font-bold uppercase">15+ Yrs Exp</div>
+</div>
+<button class="w-full py-3 bg-white border border-primary text-primary rounded-lg font-bold hover:bg-primary hover:text-white transition-all text-sm">View Profile</button>
+</div>
+<!-- Dr. 2 -->
+<div class="bento-card bg-white border border-outline-variant rounded-2xl overflow-hidden p-6 flex flex-col items-center text-center">
+<div class="size-32 rounded-full overflow-hidden border-4 border-primary-fixed mb-6">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a young female neurosurgeon in her 30s, looking confident and focused. She is in a modern surgical lounge with clean lines, soft lighting, and a maroon branded environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUW5yrSXySlaDcWtC0QtO-39et6sP4TROWyaj9xbGSG8KH6QoWHBWyKPt9YD70xNPr9qzS6IeArwAANQ-J4dAqYv82lphs1RDvZjgCZsWILzLnj-qqzs1r2aRX7ItwifudWEqnCy7Kdap3GPUzAK4A6Fzwv2-7FNIs77ipS8zhI8bSHIg1hY77_bvxf6JffyRDSWGPWZmb5FzNY_0HX6kyyjW6rgg2Vovnl2MG7t479Pdj5mCtxfGLlXjsNONKF8gu4SDrpB8TGU4"/>
+</div>
+<h4 class="text-xl font-bold text-on-surface mb-1">Dr. Sarah Chen</h4>
+<p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Neuro Specialist</p>
+<div class="flex items-center gap-2 mb-6">
+<div class="px-2 py-1 bg-secondary-container/20 text-on-secondary-container rounded text-[10px] font-bold uppercase">Next: Tomorrow</div>
+<div class="px-2 py-1 bg-surface-container text-on-surface-variant rounded text-[10px] font-bold uppercase">8+ Yrs Exp</div>
+</div>
+<button class="w-full py-3 bg-white border border-primary text-primary rounded-lg font-bold hover:bg-primary hover:text-white transition-all text-sm">View Profile</button>
+</div>
+<!-- Dr. 3 -->
+<div class="bento-card bg-white border border-outline-variant rounded-2xl overflow-hidden p-6 flex flex-col items-center text-center">
+<div class="size-32 rounded-full overflow-hidden border-4 border-primary-fixed mb-6">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a female orthopedic surgeon, smiling warmly and looking approachable. The setting is a bright, upscale outpatient clinic with maroon decor and contemporary medical equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGYX3Cn4EI7NiodDgvZPM183ialMJPu7-GfvCvBd_7nKfEa1b1T4IdaGYd3DWsaVEnXBMr6rk40X3AnRQiDba6fZM8MZp3jVkIngFBra75SedgljBZyNPNgTDHsvpuqcd2zzTsbt2ZF5CBBe-iT3ZW0bQjFP2U0cdtEwX_4IVdomRDjp4yTKureuLT9gyXMF9D09Cup4V-QKpTABfA28yeaY9NXlwS2VpNwr7-0kK-6JHPfMktX2fktCXSBBeN5qI2wuouBfMp7ZU"/>
+</div>
+<h4 class="text-xl font-bold text-on-surface mb-1">Dr. Elena Rossi</h4>
+<p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Orthopedic Surgeon</p>
+<div class="flex items-center gap-2 mb-6">
+<div class="px-2 py-1 bg-green-100 text-green-700 rounded text-[10px] font-bold uppercase">Available Today</div>
+<div class="px-2 py-1 bg-surface-container text-on-surface-variant rounded text-[10px] font-bold uppercase">12+ Yrs Exp</div>
+</div>
+<button class="w-full py-3 bg-white border border-primary text-primary rounded-lg font-bold hover:bg-primary hover:text-white transition-all text-sm">View Profile</button>
+</div>
+<!-- Dr. 4 -->
+<div class="bento-card bg-white border border-outline-variant rounded-2xl overflow-hidden p-6 flex flex-col items-center text-center">
+<div class="size-32 rounded-full overflow-hidden border-4 border-primary-fixed mb-6">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a male pediatrician, wearing a stethoscope with a playful child-friendly attachment. The room is softly lit with warm tones and a subtle maroon brand presence, appearing trustworthy and caring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqeoGzBKGolhuaijy5Cd6YrN_fkKkFkpB3mj0TfNfWasWJCGNqteVy6VHuiflPuQTbXI0GK-u_i9449S9SHkiQ7Xc_q2IK-yD2hmqgrnw9n2K65KDxGSqElHvvzlRq6h8FHGTkir7fdfSijW0KF3r2_8RaUVLQOx42F0ZueHm4YbcrXcbS3YQ1xTTPY-K6UhXYf48SiMJjJZ7Z-ML90VuVyLXrKbWLDYnpgodQpRiyd82CsD3OKXmTLTxtBcDsprcb68Dvwhl0qEg"/>
+</div>
+<h4 class="text-xl font-bold text-on-surface mb-1">Dr. James Wilson</h4>
+<p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Pediatric Consultant</p>
+<div class="flex items-center gap-2 mb-6">
+<div class="px-2 py-1 bg-secondary-container/20 text-on-secondary-container rounded text-[10px] font-bold uppercase">Next: Wed</div>
+<div class="px-2 py-1 bg-surface-container text-on-surface-variant rounded text-[10px] font-bold uppercase">20+ Yrs Exp</div>
+</div>
+<button class="w-full py-3 bg-white border border-primary text-primary rounded-lg font-bold hover:bg-primary hover:text-white transition-all text-sm">View Profile</button>
+</div>
+</div>
+</section>
+<!-- Section 5: Guided Patient Journey -->
+<section class="py-section-gap bg-primary text-white overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-6">
+<div class="mb-16">
+<h2 class="text-headline-lg text-white mb-4">Your Journey to Wellness</h2>
+<p class="text-body-lg text-on-primary-container max-w-xl">A seamless, tech-enabled flow designed to prioritize your recovery at every step.</p>
+</div>
+<div class="relative grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<!-- Step 1 -->
+<div class="relative flex flex-col gap-4 p-6 glass rounded-2xl">
+<div class="size-10 rounded-full bg-white text-primary flex items-center justify-center font-bold">1</div>
+<h4 class="font-bold">Medical Help</h4>
+<p class="text-xs text-on-primary-container">Identify symptoms or needs via our AI assistant.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col gap-4 p-6 glass rounded-2xl">
+<div class="size-10 rounded-full bg-white text-primary flex items-center justify-center font-bold">2</div>
+<h4 class="font-bold">Choose Service</h4>
+<p class="text-xs text-on-primary-container">Select between OPD, Emergency, or Lab tests.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col gap-4 p-6 glass rounded-2xl">
+<div class="size-10 rounded-full bg-white text-primary flex items-center justify-center font-bold">3</div>
+<h4 class="font-bold">Select Specialist</h4>
+<p class="text-xs text-on-primary-container">Pick your preferred doctor and time slot.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col gap-4 p-6 glass rounded-2xl">
+<div class="size-10 rounded-full bg-white text-primary flex items-center justify-center font-bold">4</div>
+<h4 class="font-bold">Secure Booking</h4>
+<p class="text-xs text-on-primary-container">Confirm with instant digital verification.</p>
+</div>
+<!-- Step 5 -->
+<div class="relative flex flex-col gap-4 p-6 glass rounded-2xl">
+<div class="size-10 rounded-full bg-white text-primary flex items-center justify-center font-bold">5</div>
+<h4 class="font-bold">Clinic Visit</h4>
+<p class="text-xs text-on-primary-container">Premium in-person care with zero wait time.</p>
+</div>
+<!-- Step 6 -->
+<div class="relative flex flex-col gap-4 p-6 glass rounded-2xl">
+<div class="size-10 rounded-full bg-white text-primary flex items-center justify-center font-bold">6</div>
+<h4 class="font-bold">Follow-up</h4>
+<p class="text-xs text-on-primary-container">AI-guided recovery tracking and reminders.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Patient Stories -->
+<section class="py-section-gap px-6 lg:px-16 max-w-[1280px] mx-auto">
+<h2 class="text-headline-lg text-primary text-center mb-16">Real Stories, Real Healing</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white p-8 rounded-3xl border border-outline-variant ambient-glow flex flex-col">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-8">"The cardiac team at CarePlus is world-class. From diagnosis to recovery, the attention to detail and technology used was unlike any other clinic I've visited."</p>
+<div class="mt-auto flex items-center gap-4">
+<div class="size-12 rounded-full bg-surface-container"></div>
+<div>
+<p class="font-bold text-on-surface">Michael R.</p>
+<p class="text-xs text-primary font-semibold uppercase">Heart Surgery Patient</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-8 rounded-3xl border border-outline-variant ambient-glow flex flex-col">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-8">"I booked my daughter's pediatric visit through the AI assistant. It was fast, and the doctor was so gentle. The modular clinics are incredibly clean and modern."</p>
+<div class="mt-auto flex items-center gap-4">
+<div class="size-12 rounded-full bg-surface-container"></div>
+<div>
+<p class="font-bold text-on-surface">Sarah J.</p>
+<p class="text-xs text-primary font-semibold uppercase">Parent of Pediatric Patient</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-8 rounded-3xl border border-outline-variant ambient-glow flex flex-col">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic mb-8">"Managed my complex knee injury here. The specialists are extremely knowledgeable, and the physiotherapy rehab plan was sent directly to my phone app."</p>
+<div class="mt-auto flex items-center gap-4">
+<div class="size-12 rounded-full bg-surface-container"></div>
+<div>
+<p class="font-bold text-on-surface">Robert L.</p>
+<p class="text-xs text-primary font-semibold uppercase">Orthopedics Patient</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Health Resources Hub -->
+<section class="py-section-gap bg-surface-container px-6" id="hub">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex items-center justify-between mb-12">
+<h2 class="text-headline-lg text-primary">Health Hub</h2>
+<a class="font-label-md text-primary hover:underline underline-offset-4 transition-all" href="#">Browse All Articles</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A macro shot of a sleek, high-tech smartwatch displaying advanced health metrics like heart rate and oxygen levels. The aesthetic is clean and modern, lit with deep maroon tones to match the clinic's premium medical branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPWb4a61flVmS092P8PTJysM0Ss78Lkia0TXe-X_G6VBF5XwPkIy2UDIY_q1R9Tna65hLuaqgyqd6v27D3D0YaoZMuwVa6Wj0oaaTjDyrWiWp5qHmraRYRVwdgkOVhDqkiRoMLEUILzIJF17ew4NW4Y1FwDuKL6VsYboqMS94l_IadWc3s5hwKiGNDjQDuYcMpGi4dlMwpeR8nu1lSRyOb9KcurcZD13RSXSz47EXtxiPcxF3MxyBlBrPzqju6DK2IUXmFuKq2lsU"/>
+</div>
+<span class="px-3 py-1 rounded bg-primary-fixed text-primary text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">Technology</span>
+<h4 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">How AI is Revolutionizing Personalized Diagnostics</h4>
+<p class="text-sm text-on-surface-variant mt-2">Read about the future of medicine and how we use data to tailor care.</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A bright and vibrant bowl of fresh, colorful vegetables and superfoods on a minimalist stone surface. The lighting is bright and airy with soft maroon accents in the background, promoting health and wellness through clinical nutrition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1LiXpjm_dB5uQyO5nOyvOLjKtNT7Zcb9OjCYY147Jf-ZoSIzS8-v_2yE4laM0j4JvIt2YPYbV_9LqTZrZ2YbtvKouGo0ADRw3oY3eCnNfHzbidewGNd2mSFbJbmOkYLc65QcJ1VOyAhnc7WpqZhlg-Crhft65xhXtoAqdl3hqgl9kEWkPQRjUcDd9stlmYlQxeE3Kde-dBRiPaM79rHi4LdtObCDdXOGA63YIj3D2N3rZzMsjv90PpPVs3Ts1WmYh6HqBjLDe_-Y"/>
+</div>
+<span class="px-3 py-1 rounded bg-primary-fixed text-primary text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">Lifestyle</span>
+<h4 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Top 10 Cardiac-Friendly Habits for 2024</h4>
+<p class="text-sm text-on-surface-variant mt-2">Expert tips from our senior cardiologists on maintaining a healthy heart.</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A professional medical setting showing a physician explaining an X-ray to a patient on a large digital screen. The mood is collaborative and expert-led, with a clean clinical aesthetic and maroon brand highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmjBlpnMYGzgX43sX1vg9i-J55fA_8sHte5FShWoQ25EGMIeyegHbSU9ZQzZhUdVRxzX15l-ltltAfktMb1y7URcihBYjm2eFHUxGOKjub5OflSyrTWlyLwlWUSL3nrwNv-XMxWRQoUc51oNvFYGX1So-AEaXnxJfrgwUwJZC-dC7L_NPJuwVPk21tlSe0dHDIEnPn2GHkUa8SsOBWpQ-TUVD4FNBIFW-YhdkLn51N_-xdEeqSNCO3n6JWyHBkjeLtL0gxx6WxURE"/>
+</div>
+<span class="px-3 py-1 rounded bg-primary-fixed text-primary text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">Prevention</span>
+<h4 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Why Annual Checkups are Your Best Defense</h4>
+<p class="text-sm text-on-surface-variant mt-2">Understanding the long-term benefits of preventive medical screenings.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 9: Contact & Appointment Center -->
+<section class="py-section-gap px-6 lg:px-16 max-w-[1280px] mx-auto" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<div class="space-y-8">
+<h2 class="text-headline-lg text-primary">Get in Touch</h2>
+<p class="text-body-lg text-on-surface-variant">We're here to assist you 24/7. Whether it's an emergency or a routine query, our team is ready to help.</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Main Clinic</h5>
+<p class="text-sm text-on-surface-variant">42 Medical Plaza, Innovation Drive, Tech City</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Helpline</h5>
+<p class="text-sm text-on-surface-variant">Toll Free: 1800-CARE-PLUS<br/>Emergency: +1-234-567-890</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="size-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Clinic Timings</h5>
+<p class="text-sm text-on-surface-variant">Mon - Sat: 8:00 AM - 10:00 PM<br/>Emergency &amp; ICU: 24/7 Open</p>
+</div>
+</div>
+</div>
+<div class="h-64 rounded-2xl overflow-hidden border border-outline-variant bg-surface-container relative">
+<img class="w-full h-full object-cover opacity-80" data-alt="A stylized map graphic showing a modern clinical campus in a tech-forward urban area. The map is designed with high contrast, white and light grey tones, and maroon location markers, perfectly matching the clinic's sophisticated brand." data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5QCpbI475dkk9U09V-DNqJ9iqPcpMSAMuQbhEg6DrwvwOGSeyw5bqiS25jmQfYBwyjtOqAj2goyZLzuK-cRA6MTvCLJrlhu-tbfMQueJdUItR9-P0w7345IC1o05NAnayxTS4RWgoxTDWccFT7g5RrWXW-IGPpw4U6J87AclJTC5mF8yL3afg9AqAlzmmiODT5XPMGYcvbaaADrxJ9mZO-2AYSG9W5bt6aAJuYZfcBymzLR23kGkiHKGQBKfK3u73oWAL-010fQ8"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 shadow-xl">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> CarePlus Clinic
+                            </div>
+</div>
+</div>
+</div>
+<div class="bg-white p-10 rounded-3xl border border-outline-variant shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-[120px]" data-icon="event_available">event_available</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-8">Request an Appointment</h3>
+<form class="space-y-6 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Contact Number</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Select Specialty</label>
+<select class="w-full bg-surface-container border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20">
+<option>Cardiology</option>
+<option>Orthopedics</option>
+<option>Neurology</option>
+<option>Pediatrics</option>
+<option>General Consultation</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Message (Optional)</label>
+<textarea class="w-full bg-surface-container border-none rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary/20 h-24" placeholder="Briefly describe your concern..."></textarea>
+</div>
+<button class="w-full py-4 bg-primary-container text-white rounded-lg font-bold hover:bg-primary transition-all shadow-lg">Confirm Request</button>
+<p class="text-[10px] text-center text-on-surface-variant uppercase tracking-widest mt-4">Our AI coordinator will confirm your slot within 15 minutes.</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Section 10: Footer -->
+<footer class="bg-primary text-white py-20 px-6 lg:px-16 border-t border-white/10">
+<div class="max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="size-6 text-white">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">CarePlus Clinic</h2>
+</div>
+<p class="text-on-primary-container text-sm leading-relaxed mb-6">Redefining modern healthcare through Clinical Intelligence and premium specialty services.</p>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all" href="#">
+<img class="size-5 opacity-80" data-alt="Minimalist monochromatic social media icon for Facebook, stylized for a premium clinical brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_xoT0FcX7FBS2lrOnhS87BWzJ1H4FWcocMRzDG2UcRDEtmqsm0tGVeGJrDlZ-SMYU9Yhsr4GXjAs-rqlt5UUpMKycFT6XES0iGz-DbjB-dFj5GbBV-cB-ZG_TmpOaKdoSDBIWgprDEpnEoLB-Hv5m70pijmVWb41Igwccz6EkXg9cCLe6F7kaP7uw8-DCX5TCi0kx8ZxMWO7gE3YgSrK-cmfDT_Wlbp4capohZjCvkGc4_AITl3zH0VT8mL3_z-iJ1z_Dvky_tZY"/>
+</a>
+<a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all" href="#">
+<img class="size-5 opacity-80" data-alt="Minimalist monochromatic social media icon for Instagram, stylized for a premium clinical brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtiGOvP_NTuAo_mJLNTYA5_rIiMk2hDINpzx0LXA8IEMQfjJ01io7xtgu7XpXhEH62HwuBC1pt2QZKaH2hxwhmwuCIiuNNMxUBjX389WwTPlBCP6hnMd-QC2rbfi2mvvTKNcGWn2W7Zd0nVf3lrjZK3YZaBiKt9RnrNZ26fu2iRGXXhqirThKKEqRXMsC8DKgDsIl19HY-VWVn8Lov0gls_J9p-LrbwNH32YjRVpK6hdgtGZOWcvfNcnklO_9ol1rTw05YBy0d_5M"/>
+</a>
+<a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all" href="#">
+<img class="size-5 opacity-80" data-alt="Minimalist monochromatic social media icon for LinkedIn, stylized for a premium clinical brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsVbES-PIAcLlfw1WH6f6xgmYGrILWSfS82i8kawpdGt7NZi-YQcsuqh5Upqw_Sd9PA7O1-o3V7OWoOYSP6U9Asle3l4GDIDWppAKe-jJ6p9I0gtp4tQ_iTXCldjIlDYiOh6cmf0K7RbuqpzXTyr7sgj0onI0_ix_ych9FNSac5X9lXdc14i-q7ZyYHPkBhnmpxkbCN3YOQYd7Ri3Ojkl07e4J5TQTZP_Cmso4QxZDfjIUzYXjZuunVRfl7B-vwbrMxWx4bM48E4w"/>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase text-xs tracking-widest">Departments</h5>
+<ul class="space-y-4 text-on-primary-container text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Cardiology &amp; Vascular</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Neurology &amp; Brain Care</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Orthopedics &amp; Spine</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Pediatric Specialty</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Emergency Medicine</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase text-xs tracking-widest">Quick Links</h5>
+<ul class="space-y-4 text-on-primary-container text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Book Appointment</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Find a Specialist</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Insurance Partners</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Patient Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-white uppercase text-xs tracking-widest">Newsletter</h5>
+<p class="text-sm text-on-primary-container mb-4">Stay updated with the latest health tips and clinical news.</p>
+<div class="flex">
+<input class="w-full bg-white/10 border-none rounded-l-lg p-3 text-sm focus:ring-0 text-white placeholder:text-white/40" placeholder="Email Address" type="email"/>
+<button class="bg-white text-primary px-4 rounded-r-lg font-bold text-xs uppercase tracking-widest">Join</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-xs text-on-primary-container">© 2024 CarePlus Clinic Group. All Rights Reserved.</p>
+<div class="flex gap-6 text-xs text-on-primary-container">
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Interactive Micro-interactions
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Floating Search Input Focus
+        const searchInput = document.querySelector('input[placeholder="What can we help you with today?"]');
+        if(searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.style.borderColor = '#7b112d';
+                searchInput.parentElement.style.boxShadow = '0 0 20px rgba(123, 17, 45, 0.15)';
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                searchInput.parentElement.style.boxShadow = 'none';
+            });
+        }
+    </script>
+</body></html>
